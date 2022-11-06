@@ -38,7 +38,7 @@ export const Input = styled.TextInput`
   padding-left: 12px;
 `
 
-export const SignUpButton = styled.TouchableOpacity`
+export const SignInButton = styled.TouchableOpacity`
   border-radius: 20px;
   color: white;
   background-color: #01599a;
@@ -48,6 +48,6 @@ export const SignUpButton = styled.TouchableOpacity`
   margin-bottom: 12px;
 `;
 
-export const SignInButton = styled.TouchableOpacity``
+export const SignUpButton = styled.TouchableOpacity``
 
 

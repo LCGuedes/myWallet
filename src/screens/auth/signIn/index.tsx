@@ -1,13 +1,13 @@
 import { useState, useMemo } from 'react';
-import * as _ from './styles';
+import * as _ from './styles'
 import { ActivityIndicator } from 'react-native';
 import Typography from '../../../components/typography';
-import { signUpTypes } from '../../../types';
+import { signInTypes } from '../../../types';
 import { Formik } from 'formik';
-import { signUpSchema } from '../schemas';
+import { signInSchema } from '../schemas';
 import Wallet from '../../../../assets/icons/wallet-sharp-blue.svg'
 
-const SignUp = () => {
+const SignIn = () => {
 
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -15,21 +15,20 @@ const SignUp = () => {
     () => ({
       email: '',
       password: '',
-      passwordConfirmation: '',
     }),
     []
   );
 
-  const handleSignUp = (values: signUpTypes) => {
+  const handleSignIn = (values: signInTypes) => {
     setLoading(true);
   }
 
   return (
     <_.Container>
       <Formik
-        validationSchema={signUpSchema}
+        validationSchema={signInSchema}
         initialValues={initialValues}
-        onSubmit={handleSignUp}
+        onSubmit={handleSignIn}
       >
         {({
           errors,
@@ -42,7 +41,7 @@ const SignUp = () => {
         }) => (
           <_.Box>
             <Wallet width={50} height={50} />
-            <_.Title>Cadastro</_.Title>
+            <_.Title>Entrar</_.Title>
 
             <_.Form>
               <Typography
@@ -77,40 +76,23 @@ const SignUp = () => {
                    onChangeText={handleChange('password')}
                 />
 
-                <Typography
-                  label="Confirmar senha:"
-                  fontColor="#01599a"
-                  marginBottom='6px'
-                  marginLeft="6px"
-                />
-                {errors.passwordConfirmation &&
-                  touched.passwordConfirmation && (
-                    <_.InputError>{errors.passwordConfirmation}</_.InputError>
-                  )}
-                <_.Input
-                  secureTextEntry
-                  value={values.passwordConfirmation}
-                  onBlur={handleBlur('passwordConfirmation')}
-                  onChangeText={handleChange('passwordConfirmation')}
-                />
-
-                <_.SignUpButton
+                <_.SignInButton
                   onPress={handleSubmit}
                   disabled={!isValid || loading}
                 >
                   {loading ? (
                   <ActivityIndicator color="white" />
                 ) : (
-                  <Typography label="Cadastrar" fontColor="white" />
+                  <Typography label="Entrar" fontColor="white" />
                 )}
-                </_.SignUpButton>
+                </_.SignInButton>
 
-                <_.SignInButton>
+                <_.SignUpButton>
                   <Typography
-                    label='Já tem uma conta ? Entrar'
+                    label='Ainda não possui uma conta ? Cadastre-se'
                     fontColor='#01599a'
                   />
-                </_.SignInButton>
+                </_.SignUpButton>
             </_.Form>
           </_.Box>
         )}
@@ -119,4 +101,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;

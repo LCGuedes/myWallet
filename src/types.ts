@@ -3,3 +3,8 @@ export interface signUpTypes  {
   password: string;
   passwordConfirmation: string;
 }
+
+export interface signInTypes  {
+  email: string;
+  password: string;
+}
