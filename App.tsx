@@ -1,22 +1,14 @@
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, View } from 'react-native'
-import Wallet from './assets/icons/wallet-sharp-blue.svg'
+
+import SignUp from './src/screens/auth/signUp';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <Wallet width={80} height={80} />
+    <View >
       <StatusBar style="auto" />
+      <SignUp />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
