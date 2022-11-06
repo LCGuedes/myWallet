@@ -1,27 +1,45 @@
-import {Container} from './styles'
+import {Button, Container, Form, FormBox, Input} from './styles'
 import Typography from '../../components/typography';
+import DropDownList from '../../components/dropDownList';
 
 const Wallet = () => {
   return (
     <Container>
-      <Typography label='Minha carteira' fontColor='#01599a' />
+      <Typography label='Minha carteira' />
+      <Form>
+        <FormBox>
+          <Typography label='Valor:' marginRight='12px'/>
+          <Input />
+        </FormBox>
+
+        <FormBox>
+          <Typography label='Moeda:' marginRight='12px'/>
+          <DropDownList list={['ouro', 'dollar','real']} />
+        </FormBox>
+
+        <FormBox>
+          <Typography label='Método de pagamento:' marginRight='12px'/>
+          <DropDownList list={['Dinheiro', 'Cartão de crédito','Cartão de débito']} />
+        </FormBox>
+
+        <FormBox>
+          <Typography label='Tag:' marginRight='12px'/>
+          <DropDownList list={['Alimentação', 'Lazer','Trabalho', 'Transporte e Saúde']} />
+        </FormBox>
+
+        <Button>
+          <Typography label='Adicionar despesa' fontColor='white' />
+        </Button>
+      </Form>
     </Container>
   )
 };
 
 export default Wallet
 
+// adicionar opacoty na lista
+
 /*
-valor - receber o valor gasto na compra que quer registrar
-descrição
-moeda - droplist com os nomes das moedas retornadas pela api
-metodo de pagamento - uma dropdown list com as opções: Dinheiro,
-Cartão de crédito e Cartão de débito;
-
-tag - O campo Tag deverá exibir uma dropdown list
-com as opções: Alimentação, Lazer, Trabalho,
-Transporte e Saúde;
-
 - um botão com o texto Adicionar despesa;
 
 - Ao adicionar a despesa, ela deverá aparecer em
