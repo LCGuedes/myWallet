@@ -4,36 +4,49 @@ import { Ionicons } from '@expo/vector-icons';
 
 interface dropDownTypes {
   list: Array<string>;
+  placeholder?: string;
+  value: string;
+  setValue: any;
 };
 
 interface listTypes {
   list: Array<string>;
+  setValue: any;
+  setIsOpen: any;
 };
 
-const DropDownList = ({list}: dropDownTypes) => {
+const DropDownList = ({list, placeholder, value, setValue}: dropDownTypes) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Container>
       <InputBox>
-        <InputField />
+        <InputField value={value} placeholder={placeholder} editable={false} />
         <Button onPress={() => setIsOpen(!isOpen)}>
           <Ionicons name="arrow-down" size={18} color="#01599a" />
         </Button>
       </InputBox>
 
-        {isOpen ? (<List list={list} />): null}
+        {isOpen ? (<List list={list} setValue={setValue} setIsOpen={setIsOpen} />): null}
     </Container>
   );
 };
 
-function List({list}: listTypes) {
+function List({list, setValue, setIsOpen}: listTypes) {
+
+  const handleList = (item: string) => {
+    setValue(item);
+    setIsOpen(false)
+  }
 
   return (
       <ListBox>
           {list.map(item => (
-              <ListItem key={item}>{item}</ListItem>
+              <ListItem
+                key={item}
+                onPress={() => handleList(item)}
+              >{item}</ListItem>
           ))}
       </ListBox>
   );
@@ -53,6 +66,7 @@ export const InputField = styled.TextInput`
   border-bottom-right-radius: 0;
   width: 200px;
   height: 36px;
+  padding-left: 12px;
 `;
 
 export const Button = styled.TouchableOpacity`
