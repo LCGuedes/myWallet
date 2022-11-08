@@ -7,4 +7,11 @@ export interface signUpTypes  {
 export interface signInTypes  {
   email: string;
   password: string;
-}
+};
+
+export type RootStackParamList = {
+  SignUp: undefined;
+  SignIn: undefined;
+  Wallet: undefined;
+  Expenses: undefined;
+};

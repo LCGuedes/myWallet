@@ -2,6 +2,8 @@ import {Button, Container, Form, FormBox, Input} from './styles'
 import Typography from '../../components/typography';
 import { useEffect, useState, useRef } from 'react';
 import DropDownList from '../../components/dropDownList';
+import {useDispatch} from 'react-redux';
+import {addExpense} from '../../redux/reducers/defaultReducer';
 
 let currencyOptions:any = []
 
@@ -11,6 +13,8 @@ const Wallet = () => {
   const [currency, setCurrency] = useState('');
   const [paymentOptions, setPaymentOptions] = useState('');
   const [tag, setTag] = useState('');
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getCurrencys = async () => {
@@ -41,6 +45,8 @@ const Wallet = () => {
       paymentOptions: paymentOptions,
       tag: tag
     }
+
+    //dispatch(addExpense(data))
     console.log(data)
   }
 
