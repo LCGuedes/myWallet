@@ -23,7 +23,7 @@ const Expenses = () => {
 
   return (
     <Container>
-      <Header label="Histórico de gastos" />
+      <Header label="Histórico de despesa" />
       <FlatList
         data={data}
         renderItem={renderCard}
