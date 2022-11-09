@@ -1,10 +1,24 @@
 import styled from "styled-components/native";
 
-const Card = ({ value, paymentOptions, currency, tag }: any) => {
+interface cardType {
+  description: string;
+  value: string;
+  paymentOptions: string;
+  currency: string;
+  tag: string;
+}
+
+const Card = ({
+  description,
+  value,
+  paymentOptions,
+  currency,
+  tag,
+}: cardType) => {
   return (
     <CardBox>
       <CardHeader>
-        <Description>Almoço de quinta</Description>
+        <Description>{description}</Description>
       </CardHeader>
 
       <CardBody>

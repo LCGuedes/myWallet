@@ -2,6 +2,7 @@ import { DefaultTheme } from "styled-components";
 
 export const theme: DefaultTheme = {
   borderRadius: "12px",
+  fontSize: "16px",
   pallete: {
     common: {
       black: "#222831",

@@ -1,4 +1,3 @@
-import Typography from "../../components/typography";
 import Header from "../../components/header";
 import Card from "./components/card";
 import { Container, Box } from "./styles";
@@ -12,6 +11,7 @@ const Expenses = () => {
     return (
       <Box>
         <Card
+          description={item.description}
           value={item.value}
           paymentOptions={item.paymentOptions}
           currency={item.currency}

@@ -1,15 +1,15 @@
-import { Button, Container, Form, FormBox, Input } from "./styles";
-import Typography from "../../components/typography";
+import { Container, Form, FormBox, Input } from "./styles";
 import Header from "../../components/header";
+import Button from "../../components/button";
 import { useEffect, useState } from "react";
 import DropDownList from "../../components/dropDownList";
 import { useDispatch } from "react-redux";
 import { addExpense } from "../../redux/reducers/defaultReducer";
-import { RootStackScreenProps } from "../../types";
 
 let currencyOptions: any = [];
 
-const AddExpenses = ({ navigation }: RootStackScreenProps<"addExpenses">) => {
+const AddExpenses = () => {
+  const [inputDescription, setInputDescription] = useState("");
   const [value, setValue] = useState("");
   const [currency, setCurrency] = useState("");
   const [paymentOptions, setPaymentOptions] = useState("");
@@ -41,6 +41,7 @@ const AddExpenses = ({ navigation }: RootStackScreenProps<"addExpenses">) => {
 
   const addExpenses = () => {
     const data = {
+      description: inputDescription,
       value: value,
       currency: currency,
       paymentOptions: paymentOptions,
@@ -50,15 +51,19 @@ const AddExpenses = ({ navigation }: RootStackScreenProps<"addExpenses">) => {
     dispatch(addExpense(data));
   };
 
-  function seeExpenses() {
-    navigation.navigate("Expenses");
-  }
-
   return (
     <>
       <Header label="Adicionar despesa" />
       <Container>
         <Form>
+          <FormBox>
+            <Input
+              placeholder="Descrição:"
+              value={inputDescription}
+              onChange={(e) => setInputDescription(e.nativeEvent.text)}
+            />
+          </FormBox>
+
           <FormBox>
             <Input
               placeholder="Valor:"
@@ -94,13 +99,8 @@ const AddExpenses = ({ navigation }: RootStackScreenProps<"addExpenses">) => {
             />
           </FormBox>
 
-          <Button onPress={addExpenses}>
-            <Typography label="Adicionar despesa" fontColor="white" />
-          </Button>
+          <Button onPress={addExpenses} description="Adicionar despesa" />
         </Form>
-        <Button onPress={seeExpenses}>
-          <Typography label="Ver despesas" fontColor="white" />
-        </Button>
       </Container>
     </>
   );

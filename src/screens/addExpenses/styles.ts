@@ -9,6 +9,7 @@ export const Container = styled.View`
 
 export const Form = styled.View`
   width: 100%;
+  align-items: center;
 `;
 
 export const FormBox = styled.View`
@@ -18,10 +19,11 @@ export const FormBox = styled.View`
   align-items: center;
 `;
 export const Input = styled.TextInput`
-  width: 60%;
-  height: 36px;
+  width: 288px;
+  height: 48px;
   border-radius: 12px;
-  border: 1px solid #01599a;
+  padding: 12px;
+  border: 1px solid ${(props) => props.theme.pallete.primary.main};
 `;
 
 export const Button = styled.TouchableOpacity`

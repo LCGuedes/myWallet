@@ -8,6 +8,7 @@ interface IPallete {
 declare module "styled-components" {
   export interface DefaultTheme {
     borderRadius: string;
+    fontSize: string;
     pallete: {
       common: {
         black: string;

@@ -69,35 +69,35 @@ export const InputBox = styled.View`
 
 export const InputField = styled.TextInput`
   border: 1px solid ${({ theme }) => theme.pallete.primary.main};
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  width: 200px;
-  height: 36px;
+  width: 240px;
+  height: 48px;
   padding-left: 12px;
 `;
 
 export const Button = styled.TouchableOpacity`
-  width: 36px;
-  height: 36px;
+  width: 48px;
+  height: 48px;
   align-items: center;
   justify-content: center;
   border: 1px solid ${({ theme }) => theme.pallete.primary.main};
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 `;
 
 export const ListBox = styled.View`
-  width: 236px;
+  width: 288px;
   border: 1px solid ${({ theme }) => theme.pallete.primary.main};
-  border-radius: 12px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   margin-top: 4px;
   padding: 12px;
 `;
 
 export const ListItem = styled.Text`
-  color: #01599a;
+  color: ${({ theme }) => theme.pallete.primary.main};
   margin-bottom: 4px;
 `;
 
