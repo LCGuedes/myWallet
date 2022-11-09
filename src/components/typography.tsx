@@ -22,7 +22,7 @@ interface styledProps {
 
 const RootTypography = styled.Text<styledProps>`
   font-size: ${(props) => props.fontSize || "14px"};
-  color: ${(props) => props.fontColor || theme.main};
+  color: ${(props) => props.fontColor || theme.pallete.primary.contrastText};
   margin-top: ${(props) => props.marginTop || "0"};
   margin-bottom: ${(props) => props.marginBottom || "0"};
   margin-right: ${(props) => props.marginRight || "0"};

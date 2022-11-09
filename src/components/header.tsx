@@ -8,13 +8,13 @@ interface headerTypes {
 const Header = ({ label }: headerTypes) => {
   return (
     <Container>
-      <Typography label={label} fontColor="white" fontSize="20px" />
+      <Typography label={label} fontSize="20px" />
     </Container>
   );
 };
 
 const Container = styled.View`
-  background-color: ${({ theme }) => theme.main};
+  background-color: ${({ theme }) => theme.pallete.primary.main};
   width: 100%;
   height: 72px;
   elevation: 8;

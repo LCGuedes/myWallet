@@ -1,22 +1,27 @@
 import { useState } from "react";
 import styled from "styled-components/native";
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons } from "@expo/vector-icons";
+import { theme } from "../theme";
 
 interface dropDownTypes {
   list: Array<string>;
   placeholder?: string;
   value: string;
   setValue: any;
-};
+}
 
 interface listTypes {
   list: Array<string>;
   setValue: any;
   setIsOpen: any;
-};
+}
 
-const DropDownList = ({list, placeholder, value, setValue}: dropDownTypes) => {
-
+const DropDownList = ({
+  list,
+  placeholder,
+  value,
+  setValue,
+}: dropDownTypes) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -24,34 +29,37 @@ const DropDownList = ({list, placeholder, value, setValue}: dropDownTypes) => {
       <InputBox>
         <InputField value={value} placeholder={placeholder} editable={false} />
         <Button onPress={() => setIsOpen(!isOpen)}>
-          <Ionicons name="arrow-down" size={18} color="#01599a" />
+          <Ionicons
+            name="arrow-down"
+            size={18}
+            color={theme.pallete.primary.main}
+          />
         </Button>
       </InputBox>
 
-        {isOpen ? (<List list={list} setValue={setValue} setIsOpen={setIsOpen} />): null}
+      {isOpen ? (
+        <List list={list} setValue={setValue} setIsOpen={setIsOpen} />
+      ) : null}
     </Container>
   );
 };
 
-function List({list, setValue, setIsOpen}: listTypes) {
-
+function List({ list, setValue, setIsOpen }: listTypes) {
   const handleList = (item: string) => {
     setValue(item);
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   return (
-      <ListBox>
-          {list.map(item => (
-              <ListItem
-                key={item}
-                onPress={() => handleList(item)}
-              >{item}</ListItem>
-          ))}
-      </ListBox>
+    <ListBox>
+      {list.map((item) => (
+        <ListItem key={item} onPress={() => handleList(item)}>
+          {item}
+        </ListItem>
+      ))}
+    </ListBox>
   );
-};
-
+}
 
 export const Container = styled.View``;
 
@@ -60,7 +68,7 @@ export const InputBox = styled.View`
 `;
 
 export const InputField = styled.TextInput`
-  border: 1px solid #01599a;
+  border: 1px solid ${({ theme }) => theme.pallete.primary.main};
   border-radius: 12px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -74,7 +82,7 @@ export const Button = styled.TouchableOpacity`
   height: 36px;
   align-items: center;
   justify-content: center;
-  border: 1px solid #01599a;
+  border: 1px solid ${({ theme }) => theme.pallete.primary.main};
   border-radius: 12px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -82,7 +90,7 @@ export const Button = styled.TouchableOpacity`
 
 export const ListBox = styled.View`
   width: 236px;
-  border: 1px solid #01599a;
+  border: 1px solid ${({ theme }) => theme.pallete.primary.main};
   border-radius: 12px;
   margin-top: 4px;
   padding: 12px;
@@ -91,7 +99,6 @@ export const ListBox = styled.View`
 export const ListItem = styled.Text`
   color: #01599a;
   margin-bottom: 4px;
-`
-
+`;
 
 export default DropDownList;

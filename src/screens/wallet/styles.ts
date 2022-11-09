@@ -27,7 +27,7 @@ export const Input = styled.TextInput`
 export const Button = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
-  background-color: ${(props) => props.theme.main};
+  background-color: ${(props) => props.theme.pallete.primary.main};
   width: 240px;
   height: 48px;
   border-radius: 20px;

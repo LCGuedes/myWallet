@@ -37,22 +37,23 @@ const CardBox = styled.View`
   height: auto;
   background-color: #fff;
   elevation: 4;
+  border-radius: ${({ theme }) => theme.borderRadius};
 `;
 const CardHeader = styled.View`
-  elevation: 1;
-  background-color: ${({ theme }) => theme.main};
+  elevation: 2;
+  background-color: ${({ theme }) => theme.pallete.primary.main};
   height: 48px;
   width: 100%;
   align-items: center;
   justify-content: center;
+  border-top-left-radius: ${({ theme }) => theme.borderRadius};
+  border-top-right-radius: ${({ theme }) => theme.borderRadius};
 `;
 
-export const P = styled.Text`
-  color: ${({ theme }) => theme.main};
-`;
+export const P = styled.Text``;
 
 export const Description = styled.Text`
-  color: white;
+  color: ${({ theme }) => theme.pallete.primary.contrastText};
 `;
 
 const CardBody = styled.View`
