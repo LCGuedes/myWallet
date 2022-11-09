@@ -3,18 +3,22 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { RootStackParamList } from "./types";
 
 import Wallet from "./screens/wallet";
-
+import Expenses from "./screens/expenses";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const Routes = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name='Wallet' component={Wallet} />
+      <Stack.Navigator
+        initialRouteName="Wallet"
+        screenOptions={{ headerShown: false }}
+      >
+        <Stack.Screen name="Wallet" component={Wallet} />
+        <Stack.Screen name="Expenses" component={Expenses} />
       </Stack.Navigator>
     </NavigationContainer>
-  )
+  );
 };
 
 export default Routes;

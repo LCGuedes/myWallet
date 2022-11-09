@@ -1,21 +1,17 @@
-import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
-import store from './src/redux/store';
-import { Provider } from 'react-redux';
-
-import SignUp from './src/screens/auth/signUp';
-import SignIn from './src/screens/auth/signIn';
-
-import Wallet from './src/screens/wallet';
+import { StatusBar } from "expo-status-bar";
+import store from "./src/redux/store";
+import { Provider } from "react-redux";
+import Routes from "./src/routes";
+import { ThemeProvider } from "styled-components/native";
+import { theme } from "./src/theme";
 
 export default function App() {
   return (
     <Provider store={store}>
-      <View >
-      <StatusBar style="auto" />
-      <Wallet />
-    </View>
+      <ThemeProvider theme={theme}>
+        <StatusBar style="auto" />
+        <Routes />
+      </ThemeProvider>
     </Provider>
   );
 }
-

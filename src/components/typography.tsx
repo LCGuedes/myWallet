@@ -1,6 +1,7 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
+import { theme } from "../theme";
 
-interface Props  {
+interface Props {
   fontSize?: string;
   fontColor?: string;
   marginTop?: string;
@@ -8,24 +9,24 @@ interface Props  {
   marginRight?: string;
   marginLeft?: string;
   label: String;
-};
+}
 
-interface styledProps  {
+interface styledProps {
   fontSize?: string;
   fontColor?: string;
   marginTop?: string;
   marginBottom?: string;
   marginRight?: string;
   marginLeft?: string;
-};
+}
 
 const RootTypography = styled.Text<styledProps>`
-  font-size: ${(props) => props.fontSize || '14px'};
-  color: ${(props) => props.fontColor || '#01599a'};
-  margin-top: ${(props) => props.marginTop || '0'};
-  margin-bottom: ${(props) => props.marginBottom || '0'};
-  margin-right: ${(props) => props.marginRight || '0'};
-  margin-left: ${(props) => props.marginLeft || '0'};
+  font-size: ${(props) => props.fontSize || "14px"};
+  color: ${(props) => props.fontColor || theme.main};
+  margin-top: ${(props) => props.marginTop || "0"};
+  margin-bottom: ${(props) => props.marginBottom || "0"};
+  margin-right: ${(props) => props.marginRight || "0"};
+  margin-left: ${(props) => props.marginLeft || "0"};
 `;
 
 export default function Typography({
@@ -35,7 +36,7 @@ export default function Typography({
   marginTop,
   marginBottom,
   marginRight,
-  marginLeft
+  marginLeft,
 }: Props) {
   return (
     <RootTypography

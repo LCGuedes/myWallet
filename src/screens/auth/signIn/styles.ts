@@ -11,7 +11,6 @@ export const Box = styled.View`
   width: 100%;
   justify-content: center;
   align-items: center;
-
 `;
 
 export const Title = styled.Text`
@@ -19,15 +18,15 @@ export const Title = styled.Text`
   color: #01599a;
   margin-bottom: 36px;
   margin-top: 36px;
-`
+`;
 export const Form = styled.View`
   width: 100%;
   padding: 24px;
-`
+`;
 export const InputError = styled.Text`
   color: #ec1d25;
   margin-bottom: 6px;
-`
+`;
 
 export const Input = styled.TextInput`
   width: 100%;
@@ -36,7 +35,7 @@ export const Input = styled.TextInput`
   border-radius: 20px;
   margin-bottom: 12px;
   padding-left: 12px;
-`
+`;
 
 export const SignInButton = styled.TouchableOpacity`
   border-radius: 20px;
@@ -48,6 +47,4 @@ export const SignInButton = styled.TouchableOpacity`
   margin-bottom: 12px;
 `;
 
-export const SignUpButton = styled.TouchableOpacity``
-
-
+export const SignUpButton = styled.TouchableOpacity``;

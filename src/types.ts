@@ -1,3 +1,5 @@
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+
 export interface signUpTypes  {
   email: string;
   password: string;
@@ -15,3 +17,6 @@ export type RootStackParamList = {
   Wallet: undefined;
   Expenses: undefined;
 };
+
+export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
+  NativeStackScreenProps<RootStackParamList, Screen>;

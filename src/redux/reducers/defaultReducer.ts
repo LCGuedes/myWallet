@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
+
 interface Action {
 
 }
 
 const initialState = {
-  expenses: {}
+  expenses: []
 }
 
 const defaultReducer = createSlice({
@@ -13,12 +15,13 @@ const defaultReducer = createSlice({
   initialState: initialState,
   reducers: {
     addExpense: (state, action) => {
-      state.expenses = action.payload;
+      state.expenses = [...state.expenses, action.payload]
     }
   }
 });
 
-console.log(initialState)
+
+
 
 export const { addExpense } = defaultReducer.actions;
 
