@@ -4,6 +4,7 @@ import { RootStackParamList } from "./types";
 
 import Wallet from "./screens/wallet";
 import Expenses from "./screens/expenses";
+import addExpenses from "./screens/addExpenses";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -15,6 +16,7 @@ const Routes = () => {
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Wallet" component={Wallet} />
+        <Stack.Screen name="addExpenses" component={addExpenses} />
         <Stack.Screen name="Expenses" component={Expenses} />
       </Stack.Navigator>
     </NavigationContainer>
