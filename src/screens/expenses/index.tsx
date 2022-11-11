@@ -3,11 +3,26 @@ import Card from "./components/card";
 import { Container, Box } from "./styles";
 import { FlatList } from "react-native";
 import { useSelector } from "react-redux";
+import { rootState } from "../../redux/store";
+
+interface itemType {
+  currency: string;
+  description: string;
+  paymentOptions: string;
+  tag: string;
+  value: string;
+}
+
+interface Item {
+  item: itemType;
+}
 
 const Expenses = () => {
-  const data = useSelector((state) => state.default.expenses);
+  const expenses = useSelector(
+    (state: rootState) => state.defaultReducer.expenses
+  );
 
-  const renderCard = ({ item }: any) => {
+  const renderCard = ({ item }: Item) => {
     return (
       <Box>
         <Card
@@ -25,7 +40,7 @@ const Expenses = () => {
     <Container>
       <Header label="Histórico de despesa" />
       <FlatList
-        data={data}
+        data={expenses}
         renderItem={renderCard}
         showsVerticalScrollIndicator={false}
       />

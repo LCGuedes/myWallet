@@ -6,14 +6,14 @@ import DropDownList from "../../components/dropDownList";
 import { useDispatch } from "react-redux";
 import { addExpense } from "../../redux/reducers/defaultReducer";
 
-let currencyOptions: any = [];
+let currencyOptions: string[] = [];
 
 const AddExpenses = () => {
-  const [inputDescription, setInputDescription] = useState("");
-  const [value, setValue] = useState("");
-  const [currency, setCurrency] = useState("");
-  const [paymentOptions, setPaymentOptions] = useState("");
-  const [tag, setTag] = useState("");
+  const [inputDescription, setInputDescription] = useState<string>("");
+  const [value, setValue] = useState<string>("");
+  const [currency, setCurrency] = useState<string>("");
+  const [paymentOptions, setPaymentOptions] = useState<string>("");
+  const [tag, setTag] = useState<string>("");
 
   const dispatch = useDispatch();
 

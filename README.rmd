@@ -6,6 +6,9 @@
   - styled components
   - redux
   - navigation
-  
+
+  - redux-persist
+  -asyncStorage
+
 
 

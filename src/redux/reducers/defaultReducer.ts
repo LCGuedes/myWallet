@@ -1,27 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-
-interface Action {
-
+interface stateType {
+  expenses: string[];
 }
 
-const initialState = {
-  expenses: []
-}
+const initialState: stateType = {
+  expenses: [],
+};
 
 const defaultReducer = createSlice({
-  name: 'defaultReducer',
+  name: "defaultReducer",
   initialState: initialState,
   reducers: {
     addExpense: (state, action) => {
-      state.expenses = [...state.expenses, action.payload]
-    }
-  }
+      state.expenses = [...state.expenses, action.payload];
+    },
+  },
 });
-
-
-
 
 export const { addExpense } = defaultReducer.actions;
 
